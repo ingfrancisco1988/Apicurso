@@ -15,7 +15,7 @@ import ar.com.batalla.naval.service.PlayerService;
 @RestController
 public class PlayerController {
 	@Autowired
-	PlayerService playerService;
+	private  PlayerService playerService;
 
 	@PostMapping
 	@RequestMapping(value = "/")

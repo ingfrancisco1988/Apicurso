@@ -1,5 +1,7 @@
 package ar.com.batalla.naval.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,7 @@ public class Game {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id", unique = true, nullable = false)
 	private Long Id;
-	private String creationDate;
+	private Date creationDate =new Date();
 	
 	/**
 	 * creacion de metodos getters y setters, constructor
@@ -30,10 +32,10 @@ public class Game {
 	public void setId(Long id) {
 		Id = id;
 	}
-	public String getCreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
-	public void setCreationDate(String creationDate) {
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
 	

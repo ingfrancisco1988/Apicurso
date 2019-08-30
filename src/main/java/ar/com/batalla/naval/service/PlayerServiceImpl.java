@@ -10,7 +10,7 @@ import ar.com.batalla.naval.repository.PlayerRepository;
 public class PlayerServiceImpl implements PlayerService{
 	
 	@Autowired
-	PlayerRepository playerRepository;
+	private PlayerRepository playerRepository;
 
 	@Override
 	public Player save(Player player) {
