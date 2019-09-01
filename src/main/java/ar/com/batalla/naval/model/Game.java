@@ -14,7 +14,7 @@ public class Game {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id", unique = true, nullable = false)
 	private Long Id;
-	private Date creationDate =new Date();
+	private Date creationDate;
 	
 	/**
 	 * creacion de metodos getters y setters, constructor

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class GamePlayer {
@@ -18,7 +19,7 @@ public class GamePlayer {
 	
 	private Long playerId;
 	
-	private String joinDate;
+	private Date joinDate;
 	
 	/**
 	 * constructor, getters y setters
@@ -52,11 +53,11 @@ public class GamePlayer {
 		this.playerId = playerId;
 	}
 
-	public String getJoinDate() {
+	public Date getJoinDate() {
 		return joinDate;
 	}
 
-	public void setJoinDate(String joinDate) {
+	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	} 
 	
