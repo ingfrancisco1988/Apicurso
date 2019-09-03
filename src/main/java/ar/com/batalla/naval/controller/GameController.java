@@ -1,6 +1,9 @@
 package ar.com.batalla.naval.controller;
 
+import ar.com.batalla.naval.dto.GameDto;
+import ar.com.batalla.naval.dto.PlayerDTO;
 import ar.com.batalla.naval.model.Game;
+import ar.com.batalla.naval.model.Player;
 import ar.com.batalla.naval.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +16,19 @@ public class GameController {
   private GameService gameService;
 
   @GetMapping("/{id}")
-  public Game getGame(@PathVariable("id") Long id){
+  public Game getGame(@PathVariable Long id){
     return gameService.findById(id);
   }
+  @PostMapping("/")
+public Game create(@RequestBody GameDto gameDTO) {
+		System.out.println("entra");
+		Game user = new Game();
+		user.setCreationDate(gameDTO.getCreationDate());
+
+		return gameService.save(user);
+	}
+  
+  
 
 
 }

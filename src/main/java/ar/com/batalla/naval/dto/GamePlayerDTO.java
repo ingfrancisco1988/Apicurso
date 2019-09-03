@@ -1,38 +1,24 @@
-package ar.com.batalla.naval.model;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+package ar.com.batalla.naval.dto;
 
 import java.util.Date;
 
-@Entity
-public class GamePlayer {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "gamePlayer_id", unique = true, nullable = false)
+import ar.com.batalla.naval.model.Game;
+import ar.com.batalla.naval.model.Player;
+
+public class GamePlayerDTO {
 	private Long id;
-	
-	@ManyToOne
-    private Game gameId;
-	@ManyToOne
+
+	private Game gameId;
+
 	private Player playerId;
-	
+
 	private Date joinDate;
-	
-	/**
-	 * constructor, getters y setters
-	 */
-	
-	public GamePlayer() {
+
+	public GamePlayerDTO() {
 		
 	}
 
-	public GamePlayer(Long id, Game gameId, Player playerId, Date joinDate) {
+	public GamePlayerDTO(Long id, Game gameId, Player playerId, Date joinDate) {
 		this.id = id;
 		this.gameId = gameId;
 		this.playerId = playerId;
@@ -72,8 +58,7 @@ public class GamePlayer {
 	}
 	
 	
-
-
 	
-
+	
+	
 }

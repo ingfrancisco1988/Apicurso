@@ -13,24 +13,29 @@ public class Game {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id", unique = true, nullable = false)
-	private Long Id;
+	private Long id;
 	private Date creationDate;
 	
 	/**
 	 * creacion de metodos getters y setters, constructor
+	 * @param game 
 	 * @return
 	 */
 	
-	public Game() {
+public Game() {
+		
+	}
+	
+	public Game(Game game) {
 		
 	}
 	
 	public Long getId() {
-		return Id;
+		return id;
 	}
 	
 	public void setId(Long id) {
-		Id = id;
+		id = id;
 	}
 	public Date getCreationDate() {
 		return creationDate;

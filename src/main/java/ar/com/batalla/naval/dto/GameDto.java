@@ -3,21 +3,21 @@ package ar.com.batalla.naval.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-public class dtoGame implements Serializable {
-  private Long Id;
+public class GameDto implements Serializable {
+  private Long id;
   private Date creationDate;
 
 
-  public dtoGame(  ) {
+  public GameDto(  ) {
 
   }
 
   public Long getId() {
-    return Id;
+    return id;
   }
 
   public void setId(Long id) {
-    Id = id;
+    this.id = id;
   }
 
   public Date getCreationDate() {
