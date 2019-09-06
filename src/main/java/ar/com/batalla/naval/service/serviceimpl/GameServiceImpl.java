@@ -4,6 +4,7 @@ import ar.com.batalla.naval.model.Game;
 import ar.com.batalla.naval.repository.GameRepository;
 import ar.com.batalla.naval.service.GameService;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,9 @@ public class GameServiceImpl implements GameService {
   }
 
   @Override
-  public Game findAll() {
-    return null;
+  public List<Game> findAll() {
+
+    return gameRepository.findAll();
   }
 
   @Override
