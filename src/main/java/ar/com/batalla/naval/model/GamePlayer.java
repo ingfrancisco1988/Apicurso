@@ -19,6 +19,7 @@ public class GamePlayer {
 	
 	@ManyToOne
     private Game gameId;
+	
 	@ManyToOne
 	private Player playerId;
 	

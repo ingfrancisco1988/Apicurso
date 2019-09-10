@@ -1,12 +1,14 @@
 package ar.com.batalla.naval.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Game {
@@ -15,7 +17,17 @@ public class Game {
     @Column(name = "game_id", unique = true, nullable = false)
 	private Long id;
 	private Date creationDate;
+	@OneToMany
+	private List<GamePlayer> gamePlayer; 
 	
+	public List<GamePlayer> getGamePlayer() {
+		return gamePlayer;
+	}
+
+	public void setGamePlayer(List<GamePlayer> gamePlayer) {
+		this.gamePlayer = gamePlayer;
+	}
+
 	/**
 	 * creacion de metodos getters y setters, constructor
 	 * @param game 
