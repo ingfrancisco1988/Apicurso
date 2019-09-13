@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 @Entity
@@ -17,12 +19,14 @@ public class GamePlayer {
     @Column(name = "gamePlayer_id", unique = true, nullable = false)
 	private Long id;
 	
+	@JsonIgnore
 	@ManyToOne
-    private Game gameId;
+    private Game game;
 	
 	@ManyToOne
-	private Player playerId;
+	private Player player;
 	
+	@JsonIgnore
 	private Date joinDate;
 	
 	/**
@@ -33,10 +37,10 @@ public class GamePlayer {
 		
 	}
 
-	public GamePlayer(Long id, Game gameId, Player playerId, Date joinDate) {
+	public GamePlayer(Long id, Game game, Player player, Date joinDate) {
 		this.id = id;
-		this.gameId = gameId;
-		this.playerId = playerId;
+		this.game = game;
+		this.player = player;
 		this.joinDate = joinDate;
 	}
 
@@ -49,19 +53,19 @@ public class GamePlayer {
 	}
 
 	public Game getGameId() {
-		return gameId;
+		return game;
 	}
 
-	public void setGameId(Game gameId) {
-		this.gameId = gameId;
+	public void setGameId(Game game) {
+		this.game= game;
 	}
 
 	public Player getPlayerId() {
-		return playerId;
+		return player;
 	}
 
-	public void setPlayerId(Player playerId) {
-		this.playerId = playerId;
+	public void setPlayerId(Player player) {
+		this.player = player;
 	}
 
 	public Date getJoinDate() {

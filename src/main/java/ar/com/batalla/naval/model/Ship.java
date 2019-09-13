@@ -19,21 +19,21 @@ public class Ship {
 	@ManyToOne
 	private GamePlayer gamePlayerId;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "ship")
+/*	@OneToMany(cascade = CascadeType.ALL,mappedBy = "ship")
 	private List<ShipLocation> shipLocation = new ArrayList<>();;
-	// Getters and Setters
+	// Getters and Setters*/
 
 	public Long getId() {
 		return id;
 	}
 
-	public List<ShipLocation> getShipLocation() {
+/*	public List<ShipLocation> getShipLocation() {
 		return shipLocation;
 	}
 
 	public void setShipLocation(List<ShipLocation> shipLocation) {
 		this.shipLocation = shipLocation;
-	}
+	}*/
 
 	public void setId(Long id) {
 		this.id = id;

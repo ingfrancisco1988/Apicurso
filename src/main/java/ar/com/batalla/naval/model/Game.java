@@ -3,6 +3,7 @@ package ar.com.batalla.naval.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ public class Game {
     @Column(name = "game_id", unique = true, nullable = false)
 	private Long id;
 	private Date creationDate;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "game")
 	private List<GamePlayer> gamePlayer; 
 	
 	public List<GamePlayer> getGamePlayer() {
