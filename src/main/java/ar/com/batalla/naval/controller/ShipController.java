@@ -37,7 +37,7 @@ public class ShipController {
 	public Ship create(@RequestBody ShipDto shipDTO) {
 		System.out.println("entra");
 		Ship user = new Ship();
-		user.setGamePlayerId(shipDTO.getGamePlayer());
+		user.setGamePlayerbarcos(shipDTO.getGamePlayer());
 
 		return shipService.save(user);
 	}

@@ -1,14 +1,13 @@
 package ar.com.batalla.naval.service.serviceimpl;
 
-import ar.com.batalla.naval.model.Game;
-import ar.com.batalla.naval.repository.GameRepository;
-import ar.com.batalla.naval.service.GameService;
-
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import ar.com.batalla.naval.model.Game;
+import ar.com.batalla.naval.repository.GameRepository;
+import ar.com.batalla.naval.service.GameService;
 
 @Service
 public class GameServiceImpl implements GameService {

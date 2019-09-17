@@ -18,6 +18,7 @@ public class Game {
     @Column(name = "game_id", unique = true, nullable = false)
 	private Long id;
 	private Date creationDate;
+	 
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "game")
 	private List<GamePlayer> gamePlayer; 
 	
@@ -48,7 +49,7 @@ public Game() {
 	}
 	
 	public void setId(Long id) {
-		id = id;
+		this.id = id;
 	}
 	public Date getCreationDate() {
 		return creationDate;
