@@ -1,40 +1,37 @@
 package ar.com.batalla.naval.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-public class GamePlayer {
+public class GamePlayer implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "gamePlayer_id", unique = true, nullable = false)
 	private Long id;
-	
+
+
+	@ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name="GAME_ID")
+	private Game game;
+
 	@JsonIgnore
-	@ManyToOne
-    private Game game;
-	
 	@ManyToOne
 	private Player player;
 	
 	@JsonIgnore
 	private Date joinDate;
-	@JsonIgnore
+
 	@OneToMany(mappedBy="gamePlayerbarcos", fetch=FetchType.LAZY)
-	Set<Ship> ships = new HashSet<>();
+	List<Ship> ships ;
 	
 	/**
 	 * constructor, getters y setters
@@ -62,11 +59,11 @@ public class GamePlayer {
 
 	 
 
-	public Set<Ship> getShips() {
+	public List<Ship> getShips() {
 		return ships;
 	}
 
-	public void setShips(Set<Ship> ships) {
+	public void setShips(List<Ship> ships) {
 		this.ships = ships;
 	}
 

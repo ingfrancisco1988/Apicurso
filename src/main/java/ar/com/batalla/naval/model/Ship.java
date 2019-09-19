@@ -1,16 +1,10 @@
 package ar.com.batalla.naval.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,22 +12,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Ship {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
 	private Long id;
 	
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="gamePlayerbarcos_id")
+	@ManyToOne
 	private GamePlayer gamePlayerbarcos;
-	@JsonIgnore
-	@OneToMany(mappedBy="ship", fetch=FetchType.LAZY)
-	Set<ShipLocation> shipLocation = new HashSet<>();
+
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "ship")
+	List<ShipLocation> shipLocation ;
 	// Getters and Setters
 
-	public Set<ShipLocation> getShipsLocation() {
+	public List<ShipLocation> getShipsLocation() {
 		return shipLocation;
 	}
 
-	public void setShipsLocation(Set<ShipLocation> shipLocation) {
+	public void setShipsLocation(List<ShipLocation> shipLocation) {
 		this.shipLocation = shipLocation;
 	}
 

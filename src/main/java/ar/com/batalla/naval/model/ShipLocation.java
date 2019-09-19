@@ -19,8 +19,7 @@ public class ShipLocation {
 	
     private String cell;
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="ship_id")
+    @ManyToOne
     private Ship ship;
 
     //Empty Constructor

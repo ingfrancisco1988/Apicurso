@@ -20,7 +20,7 @@ public class ShipController {
 	@Autowired
     private ShipService shipService;
 	
-	@GetMapping
+	@GetMapping("/")
     public List<Ship> findAll() {
         return shipService.findAll();
 

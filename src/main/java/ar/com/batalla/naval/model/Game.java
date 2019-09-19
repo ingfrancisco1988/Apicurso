@@ -1,48 +1,37 @@
 package ar.com.batalla.naval.model;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
-public class Game {
+public class Game implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id", unique = true, nullable = false)
 	private Long id;
 	private Date creationDate;
 	 
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "game")
-	private List<GamePlayer> gamePlayer; 
-	
-	public List<GamePlayer> getGamePlayer() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "game")
+	private Set<GamePlayer> gamePlayer =new HashSet();
+
+	public Set<GamePlayer> getGamePlayer() {
 		return gamePlayer;
 	}
 
-	public void setGamePlayer(List<GamePlayer> gamePlayer) {
+	public void setGamePlayer(Set<GamePlayer> gamePlayer) {
 		this.gamePlayer = gamePlayer;
 	}
 
-	/**
-	 * creacion de metodos getters y setters, constructor
-	 * @param game 
-	 * @return
-	 */
-	
-public Game() {
+	public Game() {
 		
 	}
 	
-	public Game(Game game) {
-		
-	}
+
 	
 	public Long getId() {
 		return id;
