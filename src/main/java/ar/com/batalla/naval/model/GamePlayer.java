@@ -15,36 +15,37 @@ public class GamePlayer implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "gamePlayer_id", unique = true, nullable = false)
+	@Column(name = "gamePlayer_id", unique = true, nullable = false)
 	private Long id;
-
 
 	@ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name="GAME_ID")
 	private Game game;
 
-	@JsonIgnore
-	@ManyToOne
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Player player;
 	
 	@JsonIgnore
 	private Date joinDate;
 
 	@OneToMany(mappedBy="gamePlayerbarcos", fetch=FetchType.LAZY)
-	List<Ship> ships ;
-	
-	/**
-	 * constructor, getters y setters
-	 */
-	
-	public GamePlayer() {
-		
+	private List<Ship> ships ;
+
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Game getGame() {
 		return game;
 	}
 
+	@JsonIgnore
 	public void setGame(Game game) {
 		this.game = game;
 	}
@@ -57,7 +58,13 @@ public class GamePlayer implements Serializable {
 		this.player = player;
 	}
 
-	 
+	public Date getJoinDate() {
+		return joinDate;
+	}
+
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
 
 	public List<Ship> getShips() {
 		return ships;
@@ -66,49 +73,4 @@ public class GamePlayer implements Serializable {
 	public void setShips(List<Ship> ships) {
 		this.ships = ships;
 	}
-
-	public GamePlayer(Long id, Game game, Player player, Date joinDate) {
-		this.id = id;
-		this.game = game;
-		this.player = player;
-		this.joinDate = joinDate;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Game getGameId() {
-		return game;
-	}
-
-	public void setGameId(Game game) {
-		this.game= game;
-	}
-
-	public Player getPlayerId() {
-		return player;
-	}
-
-	public void setPlayerId(Player player) {
-		this.player = player;
-	}
-
-	public Date getJoinDate() {
-		return joinDate;
-	}
-
-	public void setJoinDate(Date joinDate) {
-		this.joinDate = joinDate;
-	}
-	
-	
-
-
-	
-
 }

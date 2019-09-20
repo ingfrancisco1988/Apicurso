@@ -19,7 +19,6 @@ public class Player {
 	private String email;
 	
 	
-	
 	public Player() {
 	}
 	public Long getId() {

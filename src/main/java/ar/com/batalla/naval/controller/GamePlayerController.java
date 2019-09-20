@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ar.com.batalla.naval.dto.GameDto;
 import ar.com.batalla.naval.dto.GamePlayerDTO;
-import ar.com.batalla.naval.model.Game;
 import ar.com.batalla.naval.model.GamePlayer;
 import ar.com.batalla.naval.service.GamePlayerService;
 
@@ -28,8 +26,8 @@ public class GamePlayerController {
 	public GamePlayer create(@RequestBody GamePlayerDTO gamePlayerDTO) {
 			
 			GamePlayer user = new GamePlayer();
-			user.setGameId(gamePlayerDTO.getGameId());
-			user.setPlayerId(gamePlayerDTO.getPlayerId());
+			user.setGame(gamePlayerDTO.getGameId());
+			user.setPlayer(gamePlayerDTO.getPlayerId());
 			user.setJoinDate(gamePlayerDTO.getJoinDate());
 			
 			return gamePlayerService.save(user);
